@@ -1,4 +1,4 @@
-SRCS = main.cpp HumanA.cpp Weapon.cpp
+SRCS = main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
 OBJ = $(SRCS:.c=.o)
 FLAG = -Wall -Wextra -Werror
 NAME = War
