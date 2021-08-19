@@ -57,8 +57,12 @@ int main(int ac, char **av)
     s1 = av[2];
     s2 = av[3];
     checkError2(s1,s2);
-    fileIN.open(filename);
-
+    fileIN.open(filename.c_str());
+    if (fileIN == 0)
+    {
+        std::cout << "ERROR: open file" << std::endl; 
+        return (0);
+    }
     while (getline(fileIN, buff))
         text.append(buff + '\n');
     fileIN.close();
@@ -77,7 +81,12 @@ int main(int ac, char **av)
         }
     }
     filename = filename.append(".replace");
-    fileOUT.open(filename);
+    fileOUT.open(filename.c_str());
+    if (!fileOUT)
+    {
+        std::cout << "ERROR: open file" << std::endl; 
+        return (0);
+    }
     fileOUT << text;
     fileOUT.close();
 }
