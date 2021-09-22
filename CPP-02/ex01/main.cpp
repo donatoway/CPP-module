@@ -19,22 +19,6 @@
     // continuare a studiare lo shift operator https://docs.microsoft.com/en-us/cpp/standard-library/overloading-the-output-operator-for-your-own-classes?view=msvc-160
 //-------------- Shift Left ------------------------------------
 
-/*l'operatore << lavora in binario, prende 2 numeri e sposta a sinistra i bit del primo operando, il secondo 
-     operando invece decide di quanti bit spostarsi, Le posizioni dei bit che sono state lasciate libere 
-     dall'operazione di spostamento vengono riempite con zero
-Esempio:
-{
-    int a = 1, b = 3;
-        // a ora è 00000001;
-    a = a << 3;
-         // applicando lo shift-left spostera
-         // i bit di 3 posizioni 00001000, risultato = 8;
-    Cio equivale all'operazione a = 1 * (2 * 2 * 2)
-}
-- non è possibile spostare un numero maggiore della dimensione dell'intero 32.
-- il numero di posizione dei bit da spostare deve essere positivo 
-*/
-
 
     //sposto di n°BitFractional i bit in integer, quindi (integer * (2^8))
 Fixed::Fixed(const int integer)
