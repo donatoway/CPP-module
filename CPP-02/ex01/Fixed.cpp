@@ -6,7 +6,6 @@ void Fixed::setRawBits( int const raw )
 }
 int Fixed::getRawBits( void ) const
 {
-        std::cout << "getRawBits member function called" << std::endl;
         return this->FixedValue;
 }
 
@@ -32,4 +31,33 @@ Fixed::Fixed(const Fixed& OldObj)
 {
         std::cout << "Copy constructor Called" << std::endl;
         *this = OldObj;
+}
+
+//-----------------------New Functions-------------------------
+
+Fixed::Fixed(const int integer)
+{
+    std::cout << "Int Constructor Called" << std::endl;
+    this->FixedValue = integer << this->BitFractional;
+}
+
+Fixed::Fixed(const float number)
+{
+    std::cout << "Float Constructor Called" << std::endl;
+    this->FixedValue = roundf(number * (1 << this->BitFractional));
+}
+
+int Fixed::toInt( void ) const
+{
+    return  (this->FixedValue / (1 << this->BitFractional));
+}
+
+float Fixed::toFloat(void)const
+{
+    return (float(FixedValue) / (1 << this->BitFractional));
+}
+
+std::ostream&   operator << (std::ostream& stream, const Fixed& obj)
+{
+        return (stream << obj.toFloat());
 }

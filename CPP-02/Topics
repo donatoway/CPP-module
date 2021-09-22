@@ -42,6 +42,13 @@ int main()
                         // i bit di 3 posizioni 00001000, risultato = 8;
                         // Cio equivale all'operazione a = 1 * (2 * 2 * 2)
 }
+- Calcolare uno shift verso sinistra:
+        per calcolare uno shift verso sinistra immaginiamo di moltiplicare per 2 ogni
+        volta che ci spostiamo di un bit es: 7 << 4 uguale a: 7*(2*2*2*2)
+- Calcolare uno shift inverso:
+        se vogliamo spostare di un bit verso la parte opposta ci basterà dividere per 2
+        il numero ogni volta che ci spostiamo di un bit es: num = 512 / (1 << 3) uguale a:
+        num = 512 / (2*2*2).
 - non è possibile spostare un numero maggiore della dimensione dell'intero 32.
 - il numero di posizione dei bit da spostare deve essere positivo
 
