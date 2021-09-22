@@ -11,11 +11,11 @@ class Fixed
                 Fixed(const int integer);
                 Fixed(const float number);
                 ~Fixed();
-                Fixed& operator = (const Fixed &OldObj);
-                int getRawBits( void ) const;
-                void setRawBits( int const raw );
-                float toFloat(void)const;
-                int toInt( void ) const;
+                Fixed&  operator = (const Fixed &OldObj);
+                int     getRawBits( void ) const;
+                void    setRawBits( int const raw );
+                float   toFloat(void) const;
+                int     toInt( void ) const;
         private:
                 int FixedValue;
                 static const int BitFractional = 8;
