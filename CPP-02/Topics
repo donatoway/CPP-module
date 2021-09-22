@@ -51,7 +51,7 @@ int main()
         se vogliamo spostare di un bit verso la parte opposta ci basterà dividere per 2
         il numero ogni volta che ci spostiamo di un bit es: num = 512 / (1 << 3) uguale a:
         num = 512 / (2*2*2).
-- non è possibile spostare un numero maggiore della dimensione dell'intero 32.
+- non è possibile spostare un numero maggiore della dimensione dell'intero 32 o del tipo
 - il numero di posizione dei bit da spostare deve essere positivo
 
 --------------------- OSTREAM OPERATOR<< OVERLOADING --------------------
