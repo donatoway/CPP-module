@@ -33,7 +33,9 @@ la diffrenza con il costruttore di copie è che il costruttore di copie crea una
 mentre l'assignation Overloading può modificare il contenuto.
 
 ---------------------- SHIFT-LEFT ----------------------------------------
-l'operatore << lavora in binario, prende 2 numeri e sposta a sinistra i bit del primo operando, il secondo operando invece decide di quanti bit spostarsi, Le posizioni dei bit che sono state lasciate libere dall'operazione di spostamento vengono riempite con zero.
+l'operatore << lavora in binario, prende 2 numeri e sposta a sinistra i bit del primo 
+operando, il secondo operando invece decide di quanti bit spostarsi, Le posizioni dei bit che 
+sono state lasciate libere dall'operazione di spostamento vengono riempite con zero.
 Esempio:
 int main()
 {
