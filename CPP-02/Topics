@@ -1,4 +1,4 @@
---------------------  POLIMORFISMO ------------------------
+--------------------  POLIMORFISMO -------------------------------------
 La parola polimorfismo significa avere molte forme. In parole semplici, possiamo definire il
 polimorfismo come la capacità di un messaggio di essere visualizzato in più di una forma.
 Un esempio reale di polimorfismo :  una persona allo stesso tempo può avere caratteristiche
@@ -7,27 +7,47 @@ persona ha un comportamento diverso in situazioni diverse. Questo si chiama poli
 Il polimorfismo è considerato una delle caratteristiche importanti della programmazione 
 orientata agli oggetti.
 
----------------- FUNCTION OVERLOADING ----------------------
+---------------- FUNCTION OVERLOADING ---------------------------------
 quando ci sono più funzioni con lo stesso nome ma parametri diversi, si 
 dice che queste funzioni sono sovraccaricate(overloading) . Le funzioni possono essere 
 sovraccaricate modificando il numero di argomenti o/e modificando il tipo di argomenti .
 
------------------ OPERATOR OVERLOADING ---------------------
+----------------- OPERATOR OVERLOADING ---------------------------------
 Sovraccarico degli operatori : C++ fornisce anche l'opzione per sovraccaricare gli operatori.
 Ad esempio, possiamo fare in modo che l'operatore ('+') per la classe stringa concateni due
 stringhe.Sappiamo che questo è l'operatore di addizione il cui compito è aggiungere due 
 operandi. Quindi un singolo operatore '+' quando posizionato tra operandi interi,
 li aggiunge e quando viene posizionato tra operandi stringa, li concatena.
 
------------------ CopyCostructor ----------------------------
+----------------- COPYCONSTRUCTOR ---------------------------------------
 Un copyCostructor è una member function che inizializza un oggetto utilzzando
 un'altro oggetto della stessa classe, il copyCostructor ha generalmente il seguente prototipo:
 
         -- NameClass (const NameClass &oldObj);
 
------------------ Assignation Overloading -------------------
+----------------- ASSIGNATION OVERLOADING = ------------------------------
 Puoi sovraccaricare l'operatore di assegnazione (=) proprio come puoi fare con altri operatori
 e può essere usato per creare un oggetto proprio come il costruttore di copie.
         Fixed& operator = (const Fixed &OldObj);
 la diffrenza con il costruttore di copie è che il costruttore di copie crea una copia identica
 mentre l'assignation Overloading può modificare il contenuto.
+
+---------------------- SHIFT-LEFT ----------------------------------------
+l'operatore << lavora in binario, prende 2 numeri e sposta a sinistra i bit del primo operando, il secondo operando invece decide di quanti bit spostarsi, Le posizioni dei bit che sono state lasciate libere dall'operazione di spostamento vengono riempite con zero.
+Esempio:
+int main()
+{
+    int a = 1;          // a ora è 00000001;
+    a = a << 3;         // applicando lo shift-left spostera
+                        // i bit di 3 posizioni 00001000, risultato = 8;
+                        // Cio equivale all'operazione a = 1 * (2 * 2 * 2)
+}
+- non è possibile spostare un numero maggiore della dimensione dell'intero 32.
+- il numero di posizione dei bit da spostare deve essere positivo
+
+--------------------- OSTREAM OPERATOR<< OVERLOADING --------------------
+È possibile sovrascrivere l'operatore shift-left usato durante una chiamata all'output stream,
+in questo modo quando stamperemo a video sarà sufficente inserire il nome della classe. Sarà 
+quindi possibile stampare più dati della stessa classe semplicemente richiamandola in cout,
+solitamente il prototipo sarà simile: ostream& operator<<(ostream& os, const MyClass& obj);
+Esempio : https://docs.microsoft.com/en-us/cpp/standard-library/overloading-the-output-operator-for-your-own-classes?view=msvc-160
