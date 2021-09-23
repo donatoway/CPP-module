@@ -60,3 +60,10 @@ in questo modo quando stamperemo a video sarà sufficente inserire il nome della
 quindi possibile stampare più dati della stessa classe semplicemente richiamandola in cout,
 solitamente il prototipo sarà simile: ostream& operator<<(ostream& os, const MyClass& obj);
 Esempio : https://docs.microsoft.com/en-us/cpp/standard-library/overloading-the-output-operator-for-your-own-classes?view=msvc-160
+
+--------------------- INCREMENT-DECREMENT OPERATOR OVERLOADING --------------------
+Abbiamo 2 tipi di Incremento e decremento:
+Pre-incremento, Post-incremento
+Pre-decremento, Post-decremento
+A questo link troverai informazioni su come implementare Gli operator overload
+https://docs.microsoft.com/en-us/cpp/cpp/increment-and-decrement-operator-overloading-cpp?view=msvc-160
