@@ -1,5 +1,5 @@
 
-SRCS			= main.cpp Fixed.cpp
+SRCS			= main.cpp Fixed.cpp Test.cpp
 OBJ				= $(SRCS:.cpp=.o)
 
 CC				= clang++

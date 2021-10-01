@@ -15,6 +15,10 @@ class Fixed
                 void    setRawBits( int const raw );
                 float   toFloat(void) const;
                 int     toInt( void ) const;
+                const static  Fixed& min(const Fixed &value1, const Fixed &value2);
+                static  Fixed& min(Fixed &value1, Fixed &value2);
+                const static  Fixed& max(const Fixed &value1, const Fixed &value2);
+                static  Fixed& max(Fixed &value1, Fixed &value2);
                 Fixed&  operator = (const Fixed &OldObj);
                 bool    operator < (const Fixed &Obj)const;
                 bool    operator > (const Fixed &Obj)const;
@@ -39,4 +43,5 @@ class Fixed
 
 std::ostream&   operator << (std::ostream& stream, const Fixed& obj);
 
+int     Tester();
 #endif
