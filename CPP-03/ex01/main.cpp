@@ -1,5 +1,4 @@
-#include "../ex00/ClapTrap.hpp"
-#include "../ex00/ClapTrap.cpp"
+#include    "ClapTrap.hpp"
 
 
 /*
@@ -24,8 +23,70 @@
 
 */
 
-        // Continuare a studiare MULTIPLE INHERITANCE
+class ScavTrap: public ClapTrap
+{
+    public:
+            ScavTrap();
+            ScavTrap(std::string id);
+            ~ScavTrap();
+            void    attack(std::string const & target);
+            void    guardGate();
+            void    guardGateOff();
+    private:
+            bool GuardBool;
+};
+
+ScavTrap::ScavTrap(){};
+
+ScavTrap::ScavTrap(std::string id):ClapTrap(id) //inizializzare ClapTrap
+{
+    this->SetHitPoint(100);
+    this->SetEnergyPoint(50);
+    this->SetAttackDamage2(20);
+    this->GuardBool = false;
+    std::cout << "Constructor ScavTrap called" << std::endl;
+}
+
+ScavTrap::~ScavTrap()
+{
+    std::cout << "ScavTrap Destructor Called" << std::endl;
+}
+
+void    ScavTrap::attack(std::string const & target)
+{
+    std::cout << "ScavTrap:" << this->getName() << " attacks " << 
+    target  << ", causing " << this->getAttackDamage() << " point of damage! "
+    << std::endl;
+}
+
+void    ScavTrap::guardGate()
+{
+    if (this->GuardBool == false)
+        this->GuardBool = true;
+    std::cout << this->getName() << " entered in Gate keeper Mode" << std::endl;
+}
+
+void    ScavTrap::guardGateOff()
+{
+    if (this->GuardBool == true)
+        this->GuardBool = false;
+    std::cout << this->getName() << " exited from Gate keeper Mode" << std::endl;
+}
+    
 int main()
 {
+    ScavTrap    a("alberto");
+    ClapTrap    b("mirko");
+
+    std::cout << "name: " << b.getName() << "\nHitpoint: " << b.getHitPoint();
+    std::cout << "\nattackDamage: " << b.getAttackDamage() << "\nEnergyPoint: "
+    << b.getEnergyPoint() << "\n\n\n" << std::endl; 
+    std::cout << "name: " << a.getName() << "\nHitpoint: " << a.getHitPoint();
+    std::cout << "\nattackDamage: " << a.getAttackDamage() << "\nEnergyPoint: "
+    << a.getEnergyPoint() << std::endl; 
+
+
+    a.guardGate();
+    a.guardGateOff();
 
 }
