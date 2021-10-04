@@ -1,19 +1,5 @@
 #include "ClapTrap.hpp"
 
-std::string ft_itoa(int a)
-{
-    std::string ss="";   //create empty string
-    while(a)
-    {
-        int x=a%10;
-        a/=10;
-        char i='0';
-        i=i+x;
-        ss=i+ss;      //append new character at the front of the string!
-    }
-    return ss;
-}
-
 ClapTrap::ClapTrap(){};
 
 ClapTrap::ClapTrap(std::string id):Name(id), Hitpoint(10),EnergyPoint(10), AttackDamage(0)
