@@ -9,7 +9,7 @@ La sintassi è la seguente:
     };
 Una classe non eredita l'accesso ai membri privati di un'altra classe.
 
------------------------------TIPI DI ACCESSO -------------------------------------------
+----------------------------- TIPI DI ACCESSO -------------------------------------------
 
 Public:     se ereditiamo da una classe base in modo publico, erediteremo tutti gli attributi
             e le funzioni public della classe madre come public nella sottoclasse e quelli protected
@@ -17,3 +17,21 @@ Public:     se ereditiamo da una classe base in modo publico, erediteremo tutti 
 Protected:  in questo caso se ereditiamo in modo protected, gli attributi e funzioni Publiche
             diventeranno Protected, quelle protected resteranno protected.
 Private:    qui invece sia ciò che è Public e Protected diventa Privato nella classe ereditiera.
+
+
+---------------------------- TIPI DI EREDITARIETÁ ----------------------------------------
+
+SINGLE INHERITANCE : nella single inheritance la classe eredita solo da un'altra classe
+                    Sintassi:
+                    Class Sottoclasse : Public ClasseMadre
+                    {
+                        //corpo
+                    }
+MULTIPLE INHERITANCE : in multiple inheritance possiamo ereditare da più classi
+                    Sintassi:
+                    Class Sottoclasse : Public ClasseMadre1, Public ClasseMadre2, Protected ClasseMadre3 ...
+                    {
+                        //corpo
+                    }
+MULTILEVEL INHERITANCE : in questo caso una classe derivata deriva da un'altra classe derivata
+                    

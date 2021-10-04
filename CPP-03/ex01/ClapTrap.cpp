@@ -23,14 +23,22 @@ ClapTrap   & ClapTrap::operator=(ClapTrap &obj)
     return (*this);
 }
 
+bool    ClapTrap::checkDeath()
+{
+    if (this->getEnergyPoint() <= 0)
+    {
+        std::cout << this->getName()  << " is dead" << std::endl;
+        return (true);
+    }
+    return (false);
+}
+
 void ClapTrap::takeDamage(unsigned int amount)
 {
     this->EnergyPoint -= amount;
     std::cout << this->Name << " was awarded " << amount << " points"
     << std::endl;
     this->Hitpoint  -= amount;
-    if (EnergyPoint <= 0)
-        std::cout << this->Name << " is dead\n"  << std::endl;
 }
 
 void    ClapTrap::attack(std::string const & target)
@@ -42,10 +50,14 @@ void    ClapTrap::attack(std::string const & target)
 
 void    ClapTrap::Set_AttackDamage()
 {
-    int a;
-    std::cout << "Set Attack Damage of : " << this->Name
-    << std::endl;
-    std::cin >> a;
+    int a = -1;
+    while (a < 0)
+    {
+        std::cout << "Set Attack Damage of : " << this->Name
+        << std::endl;
+        std::cin >> a;
+    }
+
     this->AttackDamage = a;
 }
 

@@ -5,7 +5,7 @@
     Poichè non possiamo avere abbastanza Clap Trap ne farai un'altro.
     La classe si chiamerà ScavTrap, e erediterà da ClapTrap, il Costruttore, Distruttore, e l'attacco 
     che avranno Messaggi differenti. DopoTutto un clapTrap deve avere una certa individualità.
-    la  classe ScavTrap avra il suo costruttore e distruttore con i suoi messaggi .Inoltre, deve essere presente un 
+    la  classe ScavTrap avra il suo costruttore e distruttore con i suoi messaggi. Inoltre, deve essere presente un 
     corretto  ordinamento di Costruzione/distruzione (quando costruisci un ScavTrap, dovresti iniziare costruendo ClapTrap...
     la distruzione è in ordine inverso), il test deve dimostrare questo.
 
@@ -54,7 +54,7 @@ ScavTrap::~ScavTrap()
 
 void    ScavTrap::attack(std::string const & target)
 {
-    std::cout << "ScavTrap:" << this->getName() << " attacks " << 
+    std::cout << "ScavTrap Attack: " << this->getName() << " attacks " << 
     target  << ", causing " << this->getAttackDamage() << " point of damage! "
     << std::endl;
 }
@@ -62,31 +62,65 @@ void    ScavTrap::attack(std::string const & target)
 void    ScavTrap::guardGate()
 {
     if (this->GuardBool == false)
+    {
         this->GuardBool = true;
-    std::cout << this->getName() << " entered in Gate keeper Mode" << std::endl;
+        std::cout << this->getName() << " entered in Gate keeper Mode" << std::endl;
+    }
 }
 
 void    ScavTrap::guardGateOff()
 {
     if (this->GuardBool == true)
+    {
         this->GuardBool = false;
-    std::cout << this->getName() << " exited from Gate keeper Mode" << std::endl;
+        std::cout << this->getName() << " exited from Gate keeper Mode" << std::endl;
+    }
 }
     
 int main()
 {
-    ScavTrap    a("alberto");
-    ClapTrap    b("mirko");
+    ClapTrap    a("Freezer");
+    ClapTrap    b("MajinBuu");
+    ScavTrap    c("Goku");
 
-    std::cout << "name: " << b.getName() << "\nHitpoint: " << b.getHitPoint();
-    std::cout << "\nattackDamage: " << b.getAttackDamage() << "\nEnergyPoint: "
-    << b.getEnergyPoint() << "\n\n\n" << std::endl; 
-    std::cout << "name: " << a.getName() << "\nHitpoint: " << a.getHitPoint();
-    std::cout << "\nattackDamage: " << a.getAttackDamage() << "\nEnergyPoint: "
-    << a.getEnergyPoint() << std::endl; 
+    a.Set_AttackDamage();
+    b.Set_AttackDamage();
+    bool    DragonBall = true;
+    while (a.getEnergyPoint() >= 0 && b.getEnergyPoint() >= 0 && c.getEnergyPoint() >= 0)
+    {
+        // Freezer attacks goku
+        a.attack(c.getName());
+        c.takeDamage(a.getAttackDamage());
+        std::cout << c.getName() << " have " << c.getEnergyPoint()
+        << " EnergyPoint\n" << std::endl;
+        if (c.checkDeath())
+            break;
 
+        // Majin Buu attacks goku
+        b.attack(c.getName());
+        c.takeDamage(b.getAttackDamage());
+        std::cout << c.getName() << " have " << c.getEnergyPoint()
+        << " EnergyPoint\n" << std::endl;
+        if (c.checkDeath())
+            break;
 
-    a.guardGate();
-    a.guardGateOff();
+         // Freezer got Balzar Beans
+         if (DragonBall == true)
+         {
+            std::cout << "freezer Got a balzar beans" << std::endl; 
+            a.beRepaired(50);
+            DragonBall = false;
+         }
 
+        // Goku attacks Freezer
+        c.attack(a.getName());
+        a.takeDamage(c.getAttackDamage());
+        std::cout << a.getName() << " have " << a.getEnergyPoint()
+        << " EnergyPoint\n" << std::endl;
+        if (a.checkDeath())
+            break;
+            
+        //Goku enter in GateKeeperMode
+        c.guardGate();
+    }
 }

@@ -23,6 +23,7 @@ class ClapTrap
             void        SetHitPoint(int n);
             int         getHitPoint();
             void        check2Points();
+            bool        checkDeath();
     private:
             std::string Name;
             int         Hitpoint;
