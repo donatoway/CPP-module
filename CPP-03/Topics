@@ -1,4 +1,4 @@
-//---------------- INHERITANCE -----------------------------
+---------------------------- INHERITANCE ----------------------------------------------
 Consideriamo Un Gruppo di Caratteristiche che delle classi hanno in comune, quindi immaginiamo che queste classi abbiano gli
 stessi attributi e funzioni, anzichè riscrivere le stesse funzioni o attributi per tutte le classi possiamo ereditarli dalla 
 classe madre ed evitare di riscriverle per tutte le altre classi.
@@ -9,7 +9,7 @@ La sintassi è la seguente:
     };
 Una classe non eredita l'accesso ai membri privati di un'altra classe.
 
-//--------------- TIPI DI ACCESSO ---------------------------
+-----------------------------TIPI DI ACCESSO -------------------------------------------
 
 Public:     se ereditiamo da una classe base in modo publico, erediteremo tutti gli attributi
             e le funzioni public della classe madre come public nella sottoclasse e quelli protected
