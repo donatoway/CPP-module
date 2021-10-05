@@ -23,6 +23,10 @@ ClapTrap   & ClapTrap::operator=(ClapTrap &obj)
     return (*this);
 }
 
+void        ClapTrap::SetName(std::string id)
+{
+    this->Name = id;
+}
 bool    ClapTrap::checkDeath()
 {
     if (this->getEnergyPoint() <= 0)
