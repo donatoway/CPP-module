@@ -1,6 +1,8 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){};
+ClapTrap::ClapTrap(){
+    std::cout << "ClapTrap Constructor Called" << std::endl; 
+};
 
 ClapTrap::ClapTrap(std::string id):Name(id), Hitpoint(10),EnergyPoint(10), AttackDamage(0)
 {

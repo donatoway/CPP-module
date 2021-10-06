@@ -20,7 +20,7 @@ int main()
         if (a.checkDeath())
             break;
         // Raul Bara
-        std::cout << a.getName() << " got 30 LifePoints" << std::endl;
+        std::cout << a.getName() << "Raul got 30 LifePoints" << std::endl;
         a.beRepaired(30);
         a.highFivesGuys();
     }
