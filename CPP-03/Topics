@@ -34,4 +34,45 @@ MULTIPLE INHERITANCE : in multiple inheritance possiamo ereditare da più classi
                         //corpo
                     }
 MULTILEVEL INHERITANCE : in questo caso una classe derivata deriva da un'altra classe derivata
-                    
+
+--------------------------------------VIRTUAL -----------------------------------------------
+
+Si potrebbe verificare la condizione per cui 1 classe derivi da altre classi che a loro volta
+derivano da classi in comune. A questo punto nella classe finale si verificherebbe 1 duplicazione
+per ogni classe che ha incomune la stessa classe.Questo genererebbe un Error nel compilatore poichè
+non saprebbe quali funzioni richiamare tra i più. Entra in gioco il Virtual che consente
+di rendere univoca la classe madre ereditata da più classi e risolverebbe il problema.
+
+    Esempio:
+                        Classe A{}
+                            |
+                  __________|____________
+                |                        |           
+                |                        |
+                |                        |
+             Classe B{}                classe C{}
+                |                        |
+                |                        |
+                |________________________|
+                            |
+                            |
+                        Classe D{}
+
+        - La classe A è ereditata da B e C.
+        - Nella classe D viene ereditato B e C.
+        - Entrambe B e C contengono A
+        - A questo punto in D diene copiato B+A & C+A
+        - Nella Classe D A viene copiato 2 volte
+        - Usiamo Virtual affinchè venga copiato 1 sola volta per
+            tutte le classi.
+        
+        Sintassi:
+                class B : virtual public A 
+                {
+                };
+
+                OR
+
+                class C : public virtual A
+                {
+                };   
