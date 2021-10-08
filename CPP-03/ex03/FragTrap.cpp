@@ -1,0 +1,33 @@
+#include "FragTrap.hpp"
+
+FragTrap::FragTrap(): ClapTrap()
+{
+    std::cout << "FragTrap Constructor Called" << std::endl;
+};
+
+FragTrap::~FragTrap()
+{
+    std::cout << "FragTrap Destructor [" << getName() << "] Called" << std::endl;
+}
+
+FragTrap::FragTrap(std::string id):ClapTrap(id)
+{
+    this->SetAttackDamage2(30);
+    this->SetEnergyPoint(100);
+    this->SetHitPoint(100);
+    std::cout << "Constructor FragTrap [" << this->getName() <<  "] Called" << std::endl;
+}
+
+FragTrap & FragTrap::operator = (FragTrap &obj)
+{
+    this->SetName(obj.getName());
+    this->SetAttackDamage2(obj.getAttackDamage());
+    this->SetEnergyPoint(obj.getEnergyPoint());
+    this->SetHitPoint(obj.getHitPoint());
+    return (*this);
+}
+
+void    FragTrap::highFivesGuys()
+{
+    std::cout << "FragTrap: " << this->getName() << " says Give me Five " << std::endl;
+}
