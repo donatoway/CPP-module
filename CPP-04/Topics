@@ -1,0 +1,10 @@
+--------------------------------Funzioni Virtuali -------------------------------------
+Una Funzione Virtuale è una Funzione membro che viene ridefinita in altre classi derivate.
+Una Funzione Virtuale Assicura di richiamare la cunzione corretta indipendentemente dal
+puntatore o dalla Referenza utilizzata per la chiamata alla Funzione.
+
+- Sono Dichiarate con la parola virtual davanti al nome della funzione della classe base.
+- Non Possono eseere Statiche.
+- È necessario accedere alle funzioni virtuali utilizzando il puntatore o il riferimento
+    del    tipo di classe base per ottenere il polimorfismo in fase di esecuzione.
+- Il prototipo dovrebbe essere uguale sia nella classe Derivata che quella base.
