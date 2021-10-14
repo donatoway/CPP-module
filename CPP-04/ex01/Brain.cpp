@@ -29,3 +29,12 @@ Brain::Brain(const Brain &obj)
  {
      this->ideas[0] = str;
  }
+
+ Brain & Brain::operator=(const Brain & obj)
+ {
+    for (size_t i = 0; i < 100; i++)
+    {
+        this->ideas[i] = obj.ideas[i];
+    }
+    return (*this);
+ }
