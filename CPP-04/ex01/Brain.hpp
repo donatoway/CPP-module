@@ -1,0 +1,20 @@
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
+#include <iostream>
+#include "ClassEx00/Animal.hpp"
+
+class Brain
+{
+    public:
+            Brain();
+            ~Brain();
+            Brain(const Brain &obj);
+            std::string getBrainIdea();
+            void        setBrainIdea(const std::string &str);
+    private:
+            std::string ideas[100];
+};
+
+#endif
+
