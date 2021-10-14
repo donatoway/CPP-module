@@ -4,29 +4,6 @@
 #include "./ClassEx00/Cat.hpp"
 #include "./ClassEx00/Dog.hpp"
 
-
-/*
-    riuserai le classi dell Ex00
-    Crea Una classe chiamata Brain.
-    Brain conterrà un'array di 100 std::string chiamate ideas Now,
-    Dog e Cat. Avranno un Private Brain* Attribute.
-
-    In Cistruzione Dog e Cat inizializzeranno il loro Brain* con new Brain();
-    In Distruzione Dog e Cat eliminiranno il loro Brain.
-
-    il tuo main creerà e riempirà un array di animali, metà di esso sarà Cane e l'altra
-    metà sarà Gatto.
-
-    Prima di uscire il tuo main loopperà su quest'array ed eliminerà ogni animale.
-    Dovresti eliminare direttamente Cat e Dog come un Animale.
-
-    una copia di Cat or Dog dovrebbe essere "deep". Dovresti testare che la copia è "deep"
-    I costruttori e distruttori di ogni classe dovrebbere avere specifici output.
-    Dovranno essere chiamati gli appropriati distruttori.
-
-
-*/
-
 int main()
 {
     // SUBJECT TEST
