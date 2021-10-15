@@ -8,3 +8,37 @@ puntatore o dalla Referenza utilizzata per la chiamata alla Funzione.
 - È necessario accedere alle funzioni virtuali utilizzando il puntatore o il riferimento
     del    tipo di classe base per ottenere il polimorfismo in fase di esecuzione.
 - Il prototipo dovrebbe essere uguale sia nella classe Derivata che quella base.
+
+------------------------------- Deep Copy Constructor -----------------------------------
+A seconda delle risorse come la memoria dinamica bisogna detenuta dall'oggetto bisogna Eseuire
+Shallow Copy o Deep Copy. La Shallow copy è di default e funziona bene se non ci sono all'interno della classe variabili allocate dinamicamente altrimenti genera un errore.
+Con la Deep Copy invece avviene la copia di tutti i dati e alloca memoria per le variabili.
+
+-------------------------------- CLASSI ASTRATTE -----------------------------------------
+Si definisce astratta una classe che ha all'interno almeno un metodo virtuale puro.
+Una classe astratta non può essere istanziata poichè ci sono oggetti non completamente definiti.
+Una classe derivata che non implementa anche solo uno dei metodi virtuali puri è anch'essa classe astratta, quindi dovrà obbligatoriamente dichiarare tutte le funzioni virtuali "pure"
+per poter essere istanziata. La funzione pura si dichiara con lo = 0 affianco la funzione.
+Un metodo virtuale puro è un metodo privo di definizione, senza cioè un blocco di istruzioni (anche vuoto) ad esso associato.
+n pratica, la definzione di un metodo virtuale puro all’interno di una classe definisce uno schema di comportamento al quale tutte le derivate dovranno adattarsi, senza imporre la necessità di fornire implementazioni incongrue nella classe base.
+
+        ESEMPIO:
+        class Astratta
+        {
+            public:
+                virtual void show() = 0    // metodo virtuale puro
+        }
+
+        class Derivata:Astratta
+        {
+            public:
+                    void show()
+                    {
+                        std::cout << "io sono ShowFunction\n";
+                    }
+        }
+
+     **** In questo esempio la Classe Derivata potrà essere implementata in un Main
+          mentre la Classe Astratta non potrà farlo, nel caso in cui nella funzione
+          derivata non fosse presente la funzione show() sarebbe anch'essa considerata
+          astratta e non potrebbe essere implementata in un main() ****

@@ -22,6 +22,12 @@ int main()
     std::cout << "Type Animal meta2 is " << meta2->getType() << std::endl;
     i2->makeSound();
     meta2->makeSound();
+
+    delete meta;
+    delete i;
+    delete j;
+    delete meta2;
+    delete i2;
 }
 
 
