@@ -1,7 +1,7 @@
 #include "AMateria.hpp"
 #include "Ice.hpp"
 
-Ice::Ice(): AMateria("ice")
+Ice::Ice():AMateria("ice")
 {
     this->MateriaType = "ice";
     std::cout << "Ice Constructor Called\n";

@@ -20,22 +20,44 @@ Character::Character(std::string str)
 
 Character::Character(const Character &obj)
 {
-     for (size_t i = 0; i < 3; i++)
-    {
-        this->Materias[i] = obj.Materias[i];
-    }
     this->name = obj.name;
+    this->count = 0;
+    for (size_t i = 0; i < 4; i++)
+    {
+        if (Materias[i])
+            delete Materias[i];
+        Materias[i] = NULL;
+    }
+    for (size_t i = 0; i < 4; i++)
+    {
+        this->Materias[i] = obj.Materias[i]->clone();
+        delete obj.Materias[i];
+    }
 }
 
 Character & Character::operator=(const Character &obj)
 {
-     for (size_t i = 0; i < 3; i++)
+     this->name = obj.name;
+     this->count = 0;
+    for (size_t i = 0; i < 4; i++)
     {
-        this->Materias[i] = obj.Materias[i];
+        if (this->Materias[i])
+            delete this->Materias[i];
+        this->Materias[i] = NULL;
     }
-
-    this->name = obj.name;
+    for (size_t i = 0; i < 4; i++)
+    {
+        this->Materias[i] = obj.Materias[i]->clone();
+        delete obj.Materias[i];
+    }
     return (*this);
+}
+
+Character::~Character()
+{
+    std::cout << "Character Destructor Called\n";
+    for (size_t i = 0; i < 4; i++)
+        delete this->Materias[i];
 }
 
 std::string const & Character::getName()const

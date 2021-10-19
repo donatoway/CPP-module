@@ -3,6 +3,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 /*
     -Completa la definizione della seguente Amateria class e implementa le necessarie member functions.
@@ -60,7 +61,7 @@
 */
 
 
-//controllare Se ci sono tutte le funzioni in Matherias, ricontrollare e andare avanti
+//controllare Se ci sono tutte le funzioni in Character , ricontrollare e andare avanti
 
 int main()
 {
@@ -88,15 +89,9 @@ int main()
     return (0);
 
     */
-   ICharacter *bob = new Character("bob");
-   ICharacter *mimmo = new Character("MIMMO");
-    AMateria *m =new Ice;
 
-   bob->equip(m);
+    
 
-   bob->use(0, *mimmo);
-
-
-
+    
     return (0);
 }

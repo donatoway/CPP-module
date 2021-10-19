@@ -8,6 +8,7 @@ class Character:public ICharacter
     public:
             Character(std::string str);
             Character(const Character &obj);
+            virtual ~Character();
             virtual std::string const & getName() const;
             Character & operator=(const Character &obj);
             virtual void use(int idx, ICharacter& target);

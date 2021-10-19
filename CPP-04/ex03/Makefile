@@ -1,4 +1,4 @@
-SRCS			= main.cpp Ice.cpp AMateria.cpp Cure.cpp Character.cpp
+SRCS			= main.cpp Ice.cpp AMateria.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJ				= $(SRCS:.cpp=.o)
 
 CC				= clang++
