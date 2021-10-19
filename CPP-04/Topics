@@ -42,3 +42,9 @@ n pratica, la definzione di un metodo virtuale puro all’interno di una classe 
           mentre la Classe Astratta non potrà farlo, nel caso in cui nella funzione
           derivata non fosse presente la funzione show() sarebbe anch'essa considerata
           astratta e non potrebbe essere implementata in un main() ****
+
+--------------------------------- INTERFACCIA -------------------------------------------
+In C++ L'interfaccia a differenza di altri linguaggi in cui viene dichiarata con "interface",
+si costruisce semplicemente dichiarando un metodo virtuale puro all'interno della classe.
+Le interfacce sono utili per creare un Gruppo di metodi di base le cui funzionalità devono
+essere obbligatoriamente definite nelle classi derivate.È uso comune chiamare le classi interfacce con la I iniziale (class Ibase ad esempio).
