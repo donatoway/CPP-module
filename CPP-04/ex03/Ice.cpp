@@ -4,7 +4,7 @@
 Ice::Ice():AMateria("ice")
 {
     this->MateriaType = "ice";
-    std::cout << "Ice Constructor Called\n";
+   // std::cout << "Ice Constructor Called\n";
 }
 
 Ice::Ice(const Ice & obj)
@@ -15,7 +15,7 @@ Ice::Ice(const Ice & obj)
 
 Ice::~Ice()
 {
-    std::cout << "Ice Destructor Called\n";
+   // std::cout << "Ice Destructor Called\n";
 }
 
 Ice& Ice::operator=(const Ice & obj)

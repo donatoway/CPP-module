@@ -6,92 +6,96 @@
 #include "MateriaSource.hpp"
 
 /*
-    -Completa la definizione della seguente Amateria class e implementa le necessarie member functions.
-        class ......
-    - Crea la concreta Materia Ice e Cure . Il loro type sarà il loro name in lowercase.
-    Il loro clone() ritornerà una nuova istanza del reale tipo di  Materia.
-
-    -Riguardo use(ICharacter&) method, mostrerà:
-            - Ice: "*shoots an ice bolt at NAME*"
-            - Cure: "heals NAME's wounds*"
-            (certo, rimpiazza Name con il nome del Character)
-    Crea la Character class, quale implementerà le seguenti interfacce:
-    class ICharacter
-    {
-        public:
-                virtual ~ICharacter(){}
-                virtual std::string const & getName() const = 0;
-                virtual void equip(AMateria* m) = 0;
-                virtual void unequip(int idx) = 0;
-                virtual void use(int idx, ICharacter &target) = 0;
-    }
-
-    -Il personaggio possiede al massimo 4 materie, vuote all'inizio. Equipaggerà
-    la materia  negli slot da 0 a 3, in questo ordine.
-    Nel Caso proviamo a equipaggiare una materia in un inventario pieno , o usa/disequipaggia una Materia
-    inesistente, non fare nulla .
-    Il unequip method non deve cancellare la Materia.
-    L'use(int, ICharacter&) method dovrà usare la Materia al idx slot, e passare target come parametro a AMateria::use method.
-    Il tuo Character dovrà avere un costruttore che prende il suo nome come parametro. Una Copia o un'assegnazione dovrà essere deep.
-    La vecchia Materia di un Character dovrà essere cancellata. Stessa cosa per la distruzione di un personaggio
-
-    Crea la MateriaSource class, quale dovrà implementare la seguente interfaccia:
-
-    class IMateriaSource
-    {
-        public:
-                virtual ~IMateriaSource(){}
-                virtual void learnMateria(AMateria*) = 0;
-                virtual AMateria* createMateria(std::string const & type) = 0;
-    }
-
-    LearnMateria dovrebbe copiare la Materia passata come parametro, e salvarla nella memoria
-    per essere clonata dopo. Allo stesso modo del Character, la Sorgetnte può conoscere al massimo 4 Materia,
-    che non sono necessariamente uniche.
-
-    createMateria(std::string const &) ritornerà una nuova Materia, la quale sarà una copia della Materia
-    (precedentemente imparata dalla Source ) quale type è uguale al parametro.
-    Return 0 se il type è sconosciuto.
-
-    In poche parole, la tua Source dovrà essere in grado di imparare "templates" di Materia e ricrearle su
-    richiesta. Dovresti essere in grado di creare una materia senza sapere il suo reale tipo, solo una stringa che lo 
-    identifica.
-
-    Come il solito qui il test main che dovrai compilare!
+    class AMateria   :  is the Abstract Class interface
+    Ice and Cure     :  are implement class of Amateria Interface,they have
+                        clone() that allocate memory for a new Ice or new Cure Obj ,
+                        use() print his type of materia and the name
+                        of the Character passed.
+    class ICharacter :  is the Interface.
+    class Character  :  is the class that implement the ICharacter Interface. The functions are
+                        use() that print wich slot of his type we have to print, equip() that
+                        fill a list[4] whit the Materia Ice or Cure, unequipe() remove the materia
+                        in a particular slot but not delete the memory!
+    class IMateriaSource: Is the Interface Class
+    class MateriaSource: This class implement IMateriaSource, the functions are  LearnMateria()
+                         that store in an AMateria array[4] each slot whit one Materia (Ice or Cure)
+                         and Max Store Memory is 4 Materias, CreateMateria() return a New Materia (ice or cure)
+                         and u need just to pass which Materia you want create by string as parameter. 
+    
 */
-
-
-//controllare Se ci sono tutte le funzioni in Character , ricontrollare e andare avanti
-
 int main()
 {
-    /*
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-
     ICharacter* me = new Character("me");
     AMateria* tmp;
-    tmp = src->createMateria("cure");
-    me->equipe(tmp);
+
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-
-    ICharater* bob = new Character("bob");
-
+    ICharacter* bob = new Character("bob");
     me->use(0, *bob);
-    me->use(1,*bob);
-
+    me->use(1, *bob);
     delete bob;
     delete me;
     delete src;
-
-    return (0);
-
-    */
-
     
+    std::cout << "\n\nMINE TEST\n";
+    //********************************
+    std::cout << "Copy Assignation deep Character\n";
+    ICharacter *a = new Character("JHON");
+    a->equip(new Ice);
 
+    ICharacter *b = a;
+
+    std::cout << "A NAME = " << a->getName() << std::endl
+    << "Materia's message is :";
+    a->use(0, *a);
+    std::cout << "B NAME = "<<  b->getName() << std::endl
+    << "Materia's message is :";
+    b->use(0, *b);
+
+    delete b;
+    //******************************
+    std::cout << "\n\nCopy Constructor deep Character\n";
+    ICharacter *c = new Character("MIMMO");
+    a->equip(new Cure);
+
+    ICharacter *d(c);
+
+    std::cout << "C NAME = " << c->getName() << std::endl
+    << "Materia's message is :";
+    c->use(0, *a);
+    std::cout << "D NAME = "<<  d->getName() << std::endl
+    << "Materia's message is :";
+    d->use(0, *d);
+
+    delete d;
+
+    //**********************************
+    std::cout << "\n\nADD MORE THAN 4 MATERIA WILL STORE ANYWAY\
+    MAX 4 MATERIA \n";
+    ICharacter *paul = new Character("paul");
+    IMateriaSource *mat = new MateriaSource();
     
-    return (0);
+    for (size_t i = 0; i < 10; i++)
+    {
+      if (i % 2 == 0)
+        mat->learnMateria(new Ice());
+      else
+        mat->learnMateria(new Cure());
+    }
+    for (size_t i = 0; i < 10; i++)
+    {
+        if (i % 2 == 0)
+          paul->equip(mat->createMateria("ice"));
+        else
+          paul->equip(mat->createMateria("cure"));
+        paul->use(i, *paul);
+    }
+    delete paul;
+    delete mat;
+    return 0;
 }
