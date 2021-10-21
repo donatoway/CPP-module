@@ -1,0 +1,49 @@
+--------------------------- EXCEPTIONS ------------------------------------
+In un programma si posssono verificare degli errori in fase di RUNTIME cioè,
+nonostante il compilatore non si accorga di un errore in fase di compilazione,
+poterbbero verificarsi degli errori e quindi generare un crash del programma
+inaspettato.Ci sono errori che magari non essendo semplici da gestire fanno
+parte delle eccezioni. Entra in gioco TRY/CATCH
+
+--------------------------- TRY/CATCH --------------------------------------
+TRY : all'interno di TRY metteremo quella parte di codice a rischio che contiene
+      un eccezione.
+THROW : THROW è la chiave con cui chiamiamo l'eccezione.
+CATCH : è il codice che deve essere eseguito per quella eccezione, si possono passare
+        dei parametri che corrispondono al tipo di errore, possiamo definire più CATCH
+        in base al tipo di errore ed inoltre possiamo definire qualsiasi tipo di errore
+        tramite (...), cioè qualsiasi tipo sia l'errore esegui il CATCH, è importante
+        però che se ci sono dei tipi di errore definiti in altri CATCH, questo si
+        istanziato per ultimo.
+
+    ESEMPIO:
+    int main()
+    {
+        int a = 10;
+        int b = 0;
+
+        try
+        {
+            if (b == 0)
+                throw "B equals 0";
+            std::cout  << a / b << std::endl;
+        }
+        catch(const char *exception)
+        {
+            std::cerr << exception << '\n';
+        }
+        return (0);
+    }
+    // OUTPUT = B equals 0
+
+    ---------------------------YOUR STD::EXCEPTIONS -----------------------------
+    std::exception è una classe, puoi creare la tua classe personale sovrascrivendo
+    questa classe. In particolare what() che prende il tipo di errore e throw().
+    ESEMPIO:
+                class   MyException : public std::exception
+                {
+                    const char *what() const throw()
+                    {
+                        return "IL MIO ERRORE PERSONALE";
+                    }
+                }
