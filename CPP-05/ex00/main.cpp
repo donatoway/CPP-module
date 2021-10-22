@@ -67,23 +67,7 @@ int main()
     std::cerr << e.what() << '\n';
   }
   std::cout << "\n";
-  // 6 - Test Copy Constructor and equal 
-  try
-  {
-    Bureaucrat Conte("Conte",70);
-    Bureaucrat Renzi(Conte);
-    Bureaucrat Grillo = Renzi;
-    std::cout << "Renzi class say : ";
-    std::cout << Renzi;
-    std::cout << "Grillo class say : ";
-    std::cout << Grillo;
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
-  std::cout << "\n";
-  // - Test Increasing in For cicle
+  // 6 - Test Increasing in For cicle
   try
   {
     Bureaucrat Obama("Obama",148);
