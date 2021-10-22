@@ -12,7 +12,7 @@ class Bureaucrat
           Bureaucrat(const std::string str, int nb);
           Bureaucrat(const Bureaucrat &obj);
           Bureaucrat &  operator = (const Bureaucrat &obj);
-          std::string   GetName();
+          std::string   GetName()const ;
           int           GetGrade();
           void          increase();
           void          decrease();
@@ -30,7 +30,7 @@ class Bureaucrat
 
   private:
           int grade;
-          std::string name;
+          const std::string name;
 };
 
 std::ostream& operator <<(std::ostream &out,   Bureaucrat & obj);
