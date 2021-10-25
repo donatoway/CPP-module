@@ -82,12 +82,6 @@ bool        Form::beSigned(Bureaucrat &obj)
         << Name <<  "] because: Grade To Sign is Low\n";
         throw Form::GradeTooLowException();
     }
-    if (obj.GetGrade() > getGradeToExec())
-    {
-        std::cout  << HRED << obj.GetName() << " can't sign the Form ["
-        << Name << "] because: Grade To execute is Low\n";
-        throw Form::GradeTooLowException();
-    }
     if (obj.GetGrade() < 1)
         throw Bureaucrat::GradeTooHighException();
     this->SignedForm = true;

@@ -2,10 +2,10 @@
 
 int main()
 {
-  // 1 - Test with Increase and ToLowException
+  // 1 - Test with Increase and ToLHighException
   try
   {
-    Bureaucrat mimmo("mimmo",150);
+    Bureaucrat mimmo("mimmo",1);
 
     std::cout << mimmo;
     mimmo.increase();
@@ -16,10 +16,10 @@ int main()
     std::cerr << e.what() << '\n';
   }
   std::cout << "\n";
-  // 2 - Test with Decrease and toHighExcetion
+  // 2 - Test with Decrease and toLowExcetion
   try
   {
-    Bureaucrat Berlusconi("Berlusconi",1);
+    Bureaucrat Berlusconi("Berlusconi",150);
     std::cout << Berlusconi;
     Berlusconi.decrease();
     std::cout << Berlusconi;
@@ -55,10 +55,10 @@ int main()
   try
   {
     Bureaucrat DiMaio("DiMaio",50);
-    for (size_t i = 0; i < 50; i++)
+    for (size_t i = 50; i > 1; i--)
       DiMaio.increase();
     std::cout << DiMaio;
-    for (size_t i = 100; i > 80; i--)
+    for (size_t i = 1; i < 150 ; i++)
       DiMaio.decrease();
     std::cout << DiMaio;
   }
@@ -70,7 +70,7 @@ int main()
   // 6 - Test Increasing in For cicle
   try
   {
-    Bureaucrat Obama("Obama",148);
+    Bureaucrat Obama("Obama",3);
     for (int i = 0; i < 10; i++)
     {
       std::cout << Obama;
