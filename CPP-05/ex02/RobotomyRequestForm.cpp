@@ -30,3 +30,8 @@ void    RobotMyRequestForm::execute(Bureaucrat const & executor)const
    std::cout << GREEN<< "TRRRR TRRRR TRRR : " << this->target << " has been roboto"<<
    "mized successfully " << std::endl;
 }
+
+std::string    RobotMyRequestForm::geTarget()const
+{
+    return (this->target);
+}

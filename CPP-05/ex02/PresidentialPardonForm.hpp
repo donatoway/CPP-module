@@ -12,6 +12,7 @@ class PresidentialPardonForm:public Form
             PresidentialPardonForm(const PresidentialPardonForm &obj);
             PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
             virtual ~PresidentialPardonForm();
+            std::string    geTarget()const;
             void    execute(Bureaucrat const & executor)const;
     private:
             std::string target;

@@ -69,6 +69,9 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor)const
         out << "\n\0";
     }
     out.close();
-    std::cout << GREEN << "[Bureaucrat " << executor.GetName()
-    << " Executed the Form ShrubberyCreationForm]" << std::endl;
+}
+
+std::string ShrubberyCreationForm::geTarget()const
+{
+    return (this->target);
 }

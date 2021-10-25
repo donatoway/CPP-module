@@ -19,6 +19,7 @@ class   RobotMyRequestForm: public Form
             RobotMyRequestForm(const RobotMyRequestForm& obj);
             RobotMyRequestForm & operator=(const RobotMyRequestForm & obj);
             virtual ~RobotMyRequestForm();
+            std::string    geTarget()const;
             void    execute(Bureaucrat const & executor)const;
     private:
             std::string target;

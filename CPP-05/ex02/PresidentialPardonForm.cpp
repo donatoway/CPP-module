@@ -41,3 +41,8 @@ void    PresidentialPardonForm::execute(Bureaucrat const & executor)const
     std::cout << GREEN << "["<< target << " has been pardoned by Zafod Beeblebrox.]"
     << OFF << std::endl; 
 }
+
+std::string    PresidentialPardonForm::geTarget()const
+{
+    return (this->target);
+}

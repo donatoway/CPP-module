@@ -78,3 +78,17 @@ void  Bureaucrat::decrease()
     throw Bureaucrat::GradeTooHighException();
   this->grade--;
 }
+
+void  Bureaucrat::executeForm(Form const & form)
+{
+  form.execute(*this);
+  std::cout << GREEN << "[Bourocrat " << this->GetName()
+  << " execute " << " the Form " << form.getName() << " " << form.geTarget()<<"]\n";
+}
+
+/*
+Termina questo aggiungendo una funzione executeForm(Form const & form)
+al burocrate. Deve tentare di eseguire il modulo e, se ha successo, 
+stampare qualcosa come <burocrate> esegue <form>. In caso contrario,
+stampa un messaggio di errore esplicito.
+*/
