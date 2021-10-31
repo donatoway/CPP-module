@@ -1,30 +1,39 @@
 #ifndef SCALARTYPE_HPP
 #define SCALARTYPE_HPP
 #include <iostream>
-#include <math.h>
+#include <sstream>
+#include <cmath>
+#include <limits>
+#include <ctype.h>
 
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define OFF "\033[0m"
 
-class ScalarType
+class Conversion
 {
     public:
-            ScalarType(std::string string);
-            int    CheckScience();
-            int    CheckChar();
-            std::string GetInt();
-            std::string GetDouble();
-            std::string GetFloat();
-            std::string GetChar();
+            std::string     GetStr();
+            Conversion(char *av);
+            int         TypeNumber(std::string nb);
+            bool        CheckType();
+            void        FromInt();
+            void        FromFloat();
+            void        FromChar();
+            void        FromDouble();
+            std::string GetArrayStr(int i);
+
+
     private:
+            float       f;
+            double      d;
+            char        c;
+            int         i;
+            long long   i_tmp;
             std::string str;
-            std::string interger;
-            std::string floater;
-            std::string dou;
-            std::string character;
+            std::stringstream array[4];
 };
 
-std::ostream & operator<< (std::ostream &out, ScalarType &s);
+std::ostream    & operator<<(std::ostream &out,Conversion & obj);
 
 #endif

@@ -31,20 +31,23 @@ i limiti numerici e
 valori speciali.
 */
 
+#include <limits>
+
 int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cout<< RED << "Not enought Argument\n";
+        std::cout<< RED << "Wrong Arguments\n";
         return (-1);
     }
     else
     {
-        std::string argv = av[1];
-        ScalarType type(argv);
-        type.CheckScience();
-        type.CheckChar();
-        std::cout << type;
+      Conversion Conv(av[1]);
+      if (Conv.CheckType() == true)
+        std::cout << Conv;
     }
+
+    // CONTINUARE A FARE IL CHERCK GENERALE E IMPLEMENTARE
+    // CHECK SCIENCE
     return (0);
 }
