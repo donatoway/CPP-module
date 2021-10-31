@@ -21,9 +21,8 @@ class Conversion
             void        FromFloat();
             void        FromChar();
             void        FromDouble();
+            bool        FromScience();
             std::string GetArrayStr(int i);
-
-
     private:
             float       f;
             double      d;
