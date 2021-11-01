@@ -54,4 +54,6 @@ int main()
     data->Print("Data");
     std::cout << "\n";
     data2->Print("Data2");
+
+    delete data;
 }
