@@ -1,0 +1,29 @@
+--------------------------- STATIC-CAST ----------------------------------
+Lo Static_cast viene usato per forzare la conversione di tipo di dato in un'altro tipo.
+Esempio:
+        float f = 6.89f;
+        int i = static_cast<float>(f);
+
+        std::cout << "i = "<< i << "\n";
+        //output
+        // i = 6;
+
+--------------------------- UINTPTR_T ------------------------------------
+
+Tipo intero in grado di contenere un valore convertito da un puntatore void e quindi
+essere riconvertito in quel tipo con un valore uguale al puntatore originale.
+questi typedef potrebbero non essere definiti in alcune implementazioni di
+librerie.
+
+---------------------------- REINTERPRET_CAST ------------------------------
+
+Viene utilizzato per Convertire un puntatore in un'altro puntatore di qualsiasi tipo.Non controlla se il tipo di puntatore e i dati puntati dal puntatore sono gli stessi o meno.
+Reinterpret_cast è un tipo di operatore di casting molto speciale e pericoloso. E si suggerisce di usarlo usando il tipo di dati appropriato, ad esempio (il tipo di dati del puntatore dovrebbe essere lo stesso del tipo di dati originale).
+Viene utilizzato quando vogliamo lavorare con i bit.
+Il valore booleano verrà convertito in valore intero, ovvero 0 per falso e 1 per vero.
+Puo convertire Una Classe in un Int e vicevera può restituirla tramite il suo intero in una
+nuova classe puntata dalla classe precedente
+
+---------------------------- DYNAMIC_CAST ------------------------------------
+
+è un operatore che converte i dati da un tipo a un altro. In C++, il casting dinamico viene utilizzato principalmente per il downcasting sicuro in fase di esecuzione. Per lavorare su dynamic_cast ci deve essere una funzione virtuale nella classe base. Un dynamic_cast funziona solo con una classe base polimorfica perché utilizza queste informazioni per decidere il downcasting sicuro.
