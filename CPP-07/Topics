@@ -1,0 +1,17 @@
+-------------------------------- TEMPLATES --------------------------------------------------
+
+Il template è uno strumento molto potente che ci permette di definire un Parametro della quale
+non conosciamo ancora il tipo  e di usarlo nelle funzioni o nelle classi senza dover riscrivere
+queste funzioni o classi per ogni tipo di dato da passare.
+Ad esempio se noi avessimo una funzione max(int a, int b) che ritorna  il numero più grande tra 2 interi e volessimo usare dei float dovremmo riscrivere
+magari la stessa  funzione ma per il tipo di dato float. Con il template potremoscriverlo solo
+una volta.
+    
+        template <typename T> T     max(T a, T b)
+        {
+            if (a > b)
+                return (a);
+            return (b);
+        }
+
+            
