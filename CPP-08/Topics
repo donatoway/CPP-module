@@ -1,0 +1,63 @@
+---------------------------- VECTORS ----------------------------------
+I vettori sono degli array Dinamici con la possibilità di ridimensionarsi
+dinamicamente qunado un elemento viene inserito o eliminato.La memorizzazione
+viene gestita automaticamente dal contenitore. Gli elementi sono inseriti in 
+modo contiguo cosicchè ci si possa iterare.I vettori hanno numerose funzioni
+con cui è possibile fare molte cose ad esempio sapere il primo elemento .begin()
+o l ultimo .end(), la grandezza .size() ecc.
+
+esempio:
+
+int main()
+{
+    //dichiarazione di un vettore
+
+    int array[] = {1,2,3,4,5};
+    int n = sizeof(array)/sizeof(array[0]);
+    std::vector<int> vect(array,array + n);
+
+    // stampa degli elementi
+    for (int i = 0; i < vect.size();i++)
+        std::cout << vect[i] << "\n";
+}
+
+----------------------------- ITERATOR ----------------------------------
+
+Gli iteratori vengono usati per scorrere gli elementi di un contenitore stl o  vettore.
+Punta all indirizzo di memoria del contenitore. Riducono la complessità e la riutilizzabilità
+del codice.
+
+esempio:
+
+int main()
+{
+    //dichiarazione vettore
+    int array[] = {1,2,3,4};
+    int n = sizeof(array)/sizeof(array[0]);
+    std::vector<int> vect(array,array + n);
+
+    //dichiarazione Iteratore
+    std::vector<int>::iterator iter;
+
+    for (iter = vect.begin(); iter < vect.end();iter++)
+        std::cout << *iter << "\n";
+}
+
+---------------------------- CONTAINER -----------------------------------
+
+La libreria Containers è una raccolta generica di modelli di classi e algoritmi 
+che consentono ai programmatori di implementare facilmente strutture di dati 
+comuni come code, elenchi e stack. Esistono tre classi di contenitori: contenitori
+di sequenza, contenitori associativi e contenitori associativi non ordinati,
+ognuno dei quali è progettato per supportare un diverso insieme di operazioni.
+Il contenitore gestisce lo spazio di archiviazione allocato per i suoi elementi
+e fornisce funzioni membro per accedervi, direttamente o tramite iteratori
+(oggetti con proprietà simili ai puntatori).
+La maggior parte dei contenitori ha almeno diverse funzioni membro in comune e 
+condivide funzionalità. Quale container sia il migliore per la particolare applicazione 
+dipende non solo dalla funzionalità offerta, ma anche dalla sua efficienza 
+per diversi carichi di lavoro.
+
+
+
+
