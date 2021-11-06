@@ -39,6 +39,7 @@ int main()
     //dichiarazione Iteratore
     std::vector<int>::iterator iter;
 
+    //stampa elementi
     for (iter = vect.begin(); iter < vect.end();iter++)
         std::cout << *iter << "\n";
 }

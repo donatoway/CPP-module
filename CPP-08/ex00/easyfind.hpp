@@ -6,12 +6,19 @@
 #include <algorithm>
 #include <iterator>
 #include <exception>
+#include <array>
+#include <list>
+
+#define Green            "\e[0;32m"
+#define Cyan             "\e[0;36m"
+#define Red              "\e[0;31m#"
+#define OFF "\033[0m"
 
 class Error:public std::exception
 {
     const char *what() const throw()
     {
-        return ("Number not Found");
+        return (Red"Number not Found"OFF);
     }
 };
 
