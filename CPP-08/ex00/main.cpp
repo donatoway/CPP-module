@@ -1,18 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include "easyfind.hpp"
 
 int main()
 {
-    //dichiarazione vettore
-    int array[] = {1,2,3,4};
+    int array[] = {50,44,33,88,99};
+    int num;
     int n = sizeof(array)/sizeof(array[0]);
     std::vector<int> vect(array,array + n);
 
-    //dichiarazione Iteratore
-    std::vector<int>::iterator iter;
-
-    for (iter = vect.begin(); iter < vect.end(); iter++)
-        std::cout << *iter << "\n";
+    std::cout << "Insert a number\n";
+    std::cin >> num;
+    try
+    {
+       int find =  easyfind(vect,num);
+       std::cout << "Number found : " << find << "\n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
