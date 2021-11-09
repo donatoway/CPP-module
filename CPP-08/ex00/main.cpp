@@ -12,8 +12,12 @@ int main()
         std::cout << "number n°" << i << "\n"; 
         std::cin >> array[i];
     }
+    std::cout << "Your Vector : ";
+    for (int i = 0; i < num; i++)
+        std::cout << array[i] << " ";
+    
 
-    std::cout << "TEST VECTOR\n";
+    std::cout << "\nTEST VECTOR\n";
     //TEST VECTOR 
     try
     {
@@ -29,7 +33,7 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-
+    //TEST ARRAY
     std::cout << "\nTEST ARRAY\n";
     try
     {
@@ -45,7 +49,7 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
+    //TEST LIST
     std::cout << "\nTEST LIST\n";
     try
     {
@@ -68,13 +72,4 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
-    
-
-
-
-    //continuare con test passando come parametro list e array e non
-    //solo vettori ed aggiustare quello fatto prima
-
 }
