@@ -1,84 +1,7 @@
 #include "span.hpp"
 
-/*
-class Span
-{
-    public:
-            Span(unsigned int n);
-            void    addNumber(int nb);
-            void    PrintVect();
-            int     longestSpan();
-            int     shortestSpan();
-            class   ToLess:public std::exception
-            {
-                const char *what() const throw()
-                {
-                    return ("Exception: Not Enough Number");
-                }
-            };
-            class   Full:public std::exception
-            {
-                const char *what() const throw()
-                {
-                    return ("Exception: Full Numbers");
-                }
-            };
-            
-    private:
-            std::vector<int>    vect;
-            unsigned int total_integers;
-
-};
-*/
-/*
-Span::Span(unsigned int n)
-{
-    total_integers = n;
-}
-
-void    Span::addNumber(int nb)
-{
-    if (vect.size() < total_integers)
-        this->vect.push_back(nb);
-    else
-        throw Full();
-};
-
-int    Span::longestSpan()
-{
-    if (this->total_integers < 2)
-        throw ToLess();    
-    int max = *std::max_element(vect.begin(),vect.end());
-    int min = *std::min_element(vect.begin(),vect.end());
-    return (max - min);
-}
-
-int    Span::shortestSpan()
-{
-    if (this->total_integers < 2)
-        throw ToLess();
-    unsigned int min = 2147483647;
-    std::vector<int>    copy = this->vect;
-    std::sort(copy.begin(),copy.end());
-    for (int i = 0; i < this->total_integers - 1; i++)
-    {
-        if (copy[i + 1] - copy[i] < min)
-            min = copy[i + 1] - copy[i];
-    }
-    return (min);
-}
-
-void    Span::PrintVect()
-{
-    for (size_t i = 0; i < vect.size(); i++)
-        std::cout << vect[i] << " ";
-    std::cout << "\n";
-};
-*/
-
 int main()
 {
-    /*
 	int n;
 	std::cout << "How many numbers do you want in your array?\n";
 	std::cin >> n;
@@ -117,14 +40,4 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    */
-   Span sp(3);
-
-   sp.addNumber(1);
-   sp.addNumber(2);
-   sp.addNumber(3);
-
-   Span sp2(sp);
-
-   sp2.PrintVect(); 
 }
