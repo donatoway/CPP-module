@@ -1,33 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <string>
-#include <algorithm>
-#include <exception>
+#include "span.hpp"
 
 /*
-Crea una classe in cui puoi memorizzare N int. N sarà un int senza 
-segno e verrà passato al costruttore come unico parametro.
-
-Questa classe avrà una funzione per memorizzare un singolo numero 
-(addNumber), che verrà utilizzato per riempirlo. Il tentativo di 
-aggiungere un nuovo numero se ne sono già presenti N memorizzati 
-nell'oggetto è un errore e dovrebbe generare un'eccezione.
-
-Ora creerai due funzioni, shortestSpan e longestSpan, che scopriranno 
-rispettivamente l'intervallo più breve e più lungo tra tutti i numeri 
-contenuti nell'oggetto e lo restituiranno. Se non ci sono numeri 
-memorizzati, o solo uno, non c'è intervallo da trovare e verrà 
-generata un'eccezione.
-
-Di seguito è riportato un esempio (troppo breve) di un test principale 
-e del relativo output associato. Naturalmente, il tuo principale sarà 
-molto più approfondito di questo. Devi testare almeno con 10000 numeri.
-Più sarebbe una buona cosa. Sarebbe anche molto buono se tu potessi
-aggiungere numeri passando una serie di iteratori, che eviterebbe il 
-fastidio di fare migliaia di chiamate per addNumber...
-*/
-
 class Span
 {
     public:
@@ -56,7 +29,8 @@ class Span
             unsigned int total_integers;
 
 };
-
+*/
+/*
 Span::Span(unsigned int n)
 {
     total_integers = n;
@@ -100,26 +74,57 @@ void    Span::PrintVect()
         std::cout << vect[i] << " ";
     std::cout << "\n";
 };
+*/
 
 int main()
 {
-    Span sp(5);
+    /*
+	int n;
+	std::cout << "How many numbers do you want in your array?\n";
+	std::cin >> n;
+    n = std::abs(n);
+	Span sp(n);
+	try
+	{
+		std::cout << "\nTEST 1 to "<<n<<"\n";
+		for (size_t i = 1; i <= n; i++)
+			sp.addNumber(i);
+		std::cout << "longestSpan: "<< sp.longestSpan()<< "\n";
+		std::cout << "shortestSpan: "<< sp.shortestSpan()<< "\n";
+		std::cout << "TEST FULL SPAN + 1\n";
+		sp.addNumber(1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 
-try
-{
-    sp.addNumber(-4);
-    sp.addNumber(-0);
-    sp.addNumber(-2);
-    sp.addNumber(99);
-    sp.addNumber(-5);
-   // sp.PrintVect();
-    std::cout << sp.longestSpan() << "\n";
-    std::cout << sp.shortestSpan()<< "\n";
-}
-catch(const std::exception& e)
-{
-    std::cerr << e.what() << '\n';
-}
+    //RANDOM TEST
+    Span sp2(5);
+    int random;
+    srand(time(NULL));
 
-    //continuare a finalizzare le exception e creare i test
+    try
+    {
+        std::cout << "\nRANDOM TEST\n";
+        for (size_t i = 0; i < 5; i++)
+            sp2.addNumber(random = rand() % 100 + 1);
+        sp2.PrintVect();
+        std::cout << "longest span " << sp2.longestSpan()<< "\n";
+        std::cout << "shortest span " << sp2.shortestSpan()<< "\n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    */
+   Span sp(3);
+
+   sp.addNumber(1);
+   sp.addNumber(2);
+   sp.addNumber(3);
+
+   Span sp2(sp);
+
+   sp2.PrintVect(); 
 }
