@@ -1,59 +1,52 @@
-#include <iostream>
-#include <stack>
-#include <iterator>
-
-
-/*
-
-L' std::stack container è veramente cool, ma è l'unico di STL containers
-che non è iterabile. Male. Ma perchè star bene con esso, quando
-possiamo semplicemente giocarci e modellarlo ed aggiungerlo a qulache stuff 
-che ci piace?
-
-Dividerai questa abilità in std::stack container, per riparare
-questa grave ingiustizia.
-
-Crea un MutantStack class, che sarà inmpementata in termini di std::stack
-e offre tutti i suoi metodi, solo questa offrirà inoòtre un iteratore.
-
-Di seguito un esempio di codice, l'output della quale dovrebbe essere lo stesso
-come se rimpiazziamo il MutantSTack con, per esempio, std::list. 
-
-*/
-
-template <typename T>
-class MutantStack:public std::stack<T>
-{
-    public:
-            typedef typename std::stack<T>::container_type::iterator iterator;
-            iterator begin()
-            {
-                return (this->c.begin());
-            };
-            iterator end()
-            {
-                return (this->c.end());
-            }
-            //funzione iterator
-};
+#include "mutantstack.hpp"
 
 int main()
 {
-   // MutantStack<int> M;
+    //TEST SUBJECT
 
-    MutantStack<std::string> stack;
-    stack.push("anna");
-    stack.push("carlo");
-    stack.push("adriano");
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << "TOP :" << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << "SIZE AFTER POP : "<< mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    std::cout << "ITERATOR : ";
+    while (it != ite)
+    {
+        std::cout <<  *it << " ";
+        ++it;
+    }
+    std::cout << "\n\n";
 
+    //MAIN TEST
+    std::stack<int> s(mstack);
+    MutantStack<int> copyMutant(mstack);
+    
+    std::cout << "Copy Of Normal Stack : TOP = "<< s.top() << "\n";
+    std::cout << "Copy Of Mutant Stack : TOP = "<< copyMutant.top() << "\n";
 
-    MutantStack<std::string>::iterator it;
+    //TEST STRING
+    MutantStack<std::string> mstr;
 
-    it = stack.begin();
+    std::cout << "TEST WHIT STRING\n";
+    mstr.push("LUISS");
+    mstr.push("GUIDO");
+    mstr.push("CARLI");
+    MutantStack<std::string>::iterator iterator;
 
-    it++;
-    std::cout << *it << "\n";
+    for (iterator = mstr.begin(); iterator < mstr.end(); iterator++)
+        std::cout << *iterator << " ";
+    std::cout << "\n";
 
-    //iterator fatto, continuare ad implementare la classe costruttori/copy/assign ecc
-    //costruire il mainTest
+    while (!mstr.empty())
+        mstr.pop();
+    std::cout << "decrease using pop : size =  ";
+    std::cout << mstr.size() << "\n";
 }
