@@ -59,6 +59,41 @@ condivide funzionalità. Quale container sia il migliore per la particolare appl
 dipende non solo dalla funzionalità offerta, ma anche dalla sua efficienza 
 per diversi carichi di lavoro.
 
+----------------------------- STD::STACK -----------------------------------
+L'std::stack è un Container adattabile che da al programmatore le funzionalità di uno stack.
+specificatamente una LIFO (last-in, first-out) struttura dati.
+
+Il template class funge da involucro per la classe sottostante, sono provviste alcune funzioni.
+La classe ingloba gli elementi dall'alto.
+
+-_----->Template Parameters
+- T :           il tipo di dato passato e salvato nel container
+- Container :   il tipo del sotto-contenitore da usare per salvare gli elementi
+
+------>Member Type
+
+Member Type                 Definition
+Container_type              Container
+value_type	                Container::value_type
+size_type	                Container::size_type
+reference	                Container::reference
+const_reference	            Container::const_reference
+
+------>Functions
+Constructor()
+Destructor()
+operator=
+Top()
+Empty()
+Size()
+Push()
+Emplace()
+Pop()
+Swap()
+
+
+
+C = è il sotto-contenitore (oggetto membro protetto della classe )
 
 
 
